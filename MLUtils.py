@@ -21,6 +21,8 @@ from torchvision.transforms import ToTensor
 # Import matplotlib for visualization
 import matplotlib.pyplot as plt
 
+from timeit import default_timer as timer
+
 # Check versions
 # Note: your PyTorch version shouldn't be lower than 1.10.0 and torchvision version shouldn't be lower than 0.11
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -89,7 +91,7 @@ def test_step(data_loader: torch.utils.data.DataLoader,
         test_acc /= len(data_loader)
         print(f"Test loss: {test_loss:.5f} | Test accuracy: {test_acc:.2f}%\n")
 
-from timeit import default_timer as timer
+
 def print_train_time(start: float, end: float, device: torch.device = None):
     """Prints difference between start and end time.
 
